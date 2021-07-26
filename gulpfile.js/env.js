@@ -1,6 +1,7 @@
 /*
 * credit: https://github.com/gonsakon/gulpDemo3
 * */
+
 const srcPath = './src';
 const distPath = './dist';
 const nodePath = './node_modules';

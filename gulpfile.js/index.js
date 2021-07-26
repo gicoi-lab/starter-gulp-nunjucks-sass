@@ -17,18 +17,8 @@ const browserSync = require('browser-sync').create();
 const { env } = require('./env');
 
 let options = minimist(process.argv.slice(2), env);
-//現在開發狀態
 console.log(`Current mode：${options.env}`);
 
-/*
-const buildScss = async function () {
-  await gulp.src('scss/!*.scss')
-    .pipe(sass.sync({
-      outputStyle: 'compressed'
-    }).on('error', sass.logError))
-    .pipe(gulp.dest('css'))
-}
-*/
 function copyFile() {
   return gulp.src(env.copyFile.src)
     .pipe(gulp.dest(env.copyFile.path))
@@ -98,22 +88,6 @@ function vendorsJs() {
     .pipe($.concat(env.vendors.concat))
     .pipe(gulp.dest(env.vendors.path));
 }
-
-// gulp.task('build', () => {
-//   return gulp.src([
-//     'src/views/**/*.html',
-//     '!src/views/_layouts/*.html',
-//     '!src/views/_includes/*.html'
-//   ])
-//     .pipe(gulp.dest('./dist'))
-// })
-//
-// gulp.task('styles', buildScss);
-//
-// gulp.task('watch', function () {
-//   gulp.watch(['scss/!*.scss'], buildScss);
-// });
-
 
 function browser() {
   browserSync.init({
